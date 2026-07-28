@@ -1,5 +1,5 @@
 ---
-title: "Lab 01 - Data Visuzlization"
+title: "Lab 01 - Data Visualization"
 author: "Your Name Goes Here"
 date: "09/04/2026"
 output: pdf_document
@@ -54,12 +54,8 @@ print(summdat, n = 13)
 ```
 
 
-
-
 # Exercise 2
 
 Create a scatterplot of $y$ vs $x$, faceted by dataset (be sure to use informative labels - nicer plots get more points!). Then discuss how the plots compare across the datasets.  How does your response here compare to your response to Exercise 1?  What does this say about using summary statistics and data visualizations as tools when getting to know a dataset?
-
-
 
 
