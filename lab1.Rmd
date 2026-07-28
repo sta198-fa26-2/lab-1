@@ -1,0 +1,65 @@
+---
+title: "Lab 01 - Data Visuzlization"
+author: "Your Name Goes Here"
+date: "09/04/2026"
+output: pdf_document
+editor_options: 
+  chunk_output_type: console
+---
+
+
+
+```{r load-packages, message = FALSE, echo = FALSE, warning=FALSE}
+#Load Packages and Data Preprocessing
+library(tidyverse)
+library(datasauRus)
+
+```
+
+
+
+
+# Why do we visualize?
+
+The `datasauRus` R package is a modern extension of Anscombe's quartet, a famous example used in introductory statistics courses. We will explore why the datasets are so famous in this lab. 
+
+In the dataset `datasaurus_dozen`, we have observations from 13 datasets, each of which contains 142 observations of two variables, $x$ and $y$.
+
+
+
+
+
+
+# Exercise 1
+
+The following code chunk calculates, for each of the 13 datasets, the following descriptive statistics for $x$ and $y$:  the mean, the standard deviation (square root of the variance), and the correlation between $x$ and $y$.  Run the code and comment on how these summary statistics vary across the groups (datasets).
+
+
+```{r ex1}
+#| label: dozen-summary
+#| eval: true
+
+summdat <- datasaurus_dozen %>%
+  group_by(dataset) %>%
+  summarise(
+    mean_x = mean(x),
+    mean_y = mean(y),
+    sd_x = sd(x),
+    sd_y = sd(y),
+    r = cor(x, y)
+  )
+
+print(summdat, n = 13)
+
+```
+
+
+
+
+# Exercise 2
+
+Create a scatterplot of $y$ vs $x$, faceted by dataset (be sure to use informative labels - nicer plots get more points!). Then discuss how the plots compare across the datasets.  How does your response here compare to your response to Exercise 1?  What does this say about using summary statistics and data visualizations as tools when getting to know a dataset?
+
+
+
+
