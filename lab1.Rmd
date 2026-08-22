@@ -9,7 +9,10 @@ editor_options:
 
 
 
-```{r load-packages, message = FALSE, echo = FALSE, warning=FALSE}
+```{r}
+#| message: false
+#| echo: false
+#| warning: false
 #Load Packages and Data Preprocessing
 library(tidyverse)
 library(datasauRus)
@@ -35,7 +38,7 @@ In the dataset `datasaurus_dozen`, we have observations from 13 datasets, each o
 The following code chunk calculates, for each of the 13 datasets, the following descriptive statistics for $x$ and $y$:  the mean, the standard deviation (square root of the variance), and the correlation between $x$ and $y$.  Run the code and comment on how these summary statistics vary across the groups (datasets).
 
 
-```{r ex1}
+```{r}
 #| label: dozen-summary
 #| eval: true
 
@@ -57,5 +60,63 @@ print(summdat, n = 13)
 # Exercise 2
 
 Create a scatterplot of $y$ vs $x$, faceted by dataset (be sure to use informative labels - nicer plots get more points!). Then discuss how the plots compare across the datasets.  How does your response here compare to your response to Exercise 1?  What does this say about using summary statistics and data visualizations as tools when getting to know a dataset?
+
+# Exercise 3: Global Life Expectancy
+
+Let's  create a data visualization that displays how life expectancy in the US has changed over time for females, comparing it to life expectancy in India and Iran. Once we have that plot, you can change gender and countries, update colors, and format further as desired. We'll use the plot of statistics majors from our lecture as a model.
+
+We can easily change which countries are being plotted by changing which countries the code above `filter`s for. Note that the country name should be spelled and capitalized exactly the same way as it appears in the data. See the [Appendix](#appendix) for a list of the countries in the data. 
+
+# Target: Something Like Stats Majors Plot from Class
+
+```{r}
+#| eval: false
+
+ggplot(degrees_long, 
+       aes(x = year, y = count, color = degree_type)) +
+  geom_line() +
+  labs(
+    title = "Statistical Science Degrees Awarded by Type and Year",
+    x = "Year",
+    y = "Number of Degrees",
+    color = "Degree Type"
+  ) + scale_x_continuous(breaks = seq(2011, 2026, by = 1)) +
+    theme(axis.text.x = element_text(angle = 45, hjust=1, size=8))
+```
+
+## Starting to Code
+
+The data we're using originally come from the Institute for Health Metrics and Evaluation.
+
+```{r}
+#| label: load-data
+
+life_wide <- readr::read_csv("lifeexp/lifeexpectancy_wide.csv")
+head(life_wide,10)
+
+```
+
+Let's start thinking about draft code!
+
+
+
+# Appendix {#appendix}
+Below is a list of countries in the dataset:
+
+```{r}
+#| label: list-countries
+#| echo: false
+library(kableExtra)
+
+
+life_wide %>% 
+  select(location) %>%
+  arrange(location) %>% 
+  distinct() %>%
+  kbl(booktabs = TRUE, longtable = TRUE, col.names = "Country") %>%
+  kable_styling(latex_options = c("striped", "repeat_header"))
+```
+
+
 
 
