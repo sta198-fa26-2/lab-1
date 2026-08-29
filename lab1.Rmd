@@ -80,9 +80,10 @@ How has life expectancy from infancy changed over time around the world?
 
 The data we're using originally come from the Institute for Health Metrics and Evaluation.
 
-Let's  create a data visualization that displays how life expectancy in the US has changed over time for females, comparing it to life expectancy in India and Iran. Once we have that plot, you can change gender and countries, update colors, and format further as desired. We'll use the plot of statistics majors from our lecture as a model.
+Let's  create a data visualization that displays how life expectancy in the US has changed over time for females, comparing it to life expectancy in India and Iran. Once we have that plot, you can change gender and countries, update colors, and format further as desired. We'll use a plot of statistics majors at Duke over time as a model.
 
 We can easily change which countries are being plotted by changing which countries the code above `filter`s for. Note that the country name should be spelled and capitalized exactly the same way as it appears in the data. See the end of the file for a list of the countries in the data. 
+
 
 # Target: Something Like This
 
@@ -125,9 +126,21 @@ The data we're using originally come from the Institute for Health Metrics and E
 
 ```{r}
 #| label: load-data
-
+#| 
+library(tidyverse)
 life <- readr::read_csv("lifeexp/lifeexpectancy_infant.csv")
 head(life,10)
+
+
+# we will learn more about the filter command shortly
+# we use it to limit our data to 3 countries and female sex
+
+life_3countries_f <- life %>%
+  filter(
+    location %in% c("United States of America", "India", "Iran (Islamic Republic of)"),
+    sex == "Female"
+  )
+
 
 ```
 
@@ -137,7 +150,7 @@ Let's start thinking about draft code! Fill in the missing pieces to make your p
 ```{r}
 #| eval: false
 
-ggplot(life, 
+ggplot(life_3countries_f, 
        aes()) +
   geom_line()
 
