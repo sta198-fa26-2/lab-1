@@ -87,6 +87,8 @@ We can easily change which countries are being plotted by changing which countri
 
 # Target: Something Like This
 
+Peek first at the plots on the next page, then come back to see the code as needed.
+
 ```{r}
 #| eval: false
 ggplot(degrees_long, 
@@ -100,7 +102,7 @@ ggplot(degrees_long,
   ) 
 ```
 
-![Plot 1](plot1.png){width=50%}
+![Plot 1](plot1.png){width=90%}
 
 or this...
 
@@ -118,7 +120,7 @@ ggplot(degrees_long,
     theme(axis.text.x = element_text(angle = 45, hjust=1))
 ```    
 
-![Plot 2](plot2.png){width=50%}
+![Plot 2](plot2.png){width=90%}
 
 ## Starting to Code
 
@@ -156,6 +158,10 @@ ggplot(life_3countries_f,
 
 ```
 
+
+# Exercise 4
+
+Add your name to the YAML at the top of this file, delete the code and images for the statistics majors plots, delete the appendix below, delete this Exercise 4 section (basically, clean up the file!), and submit to Gradescope via Canvas.
 
 # Appendix {#appendix}
 Below is a list of countries in the dataset:
