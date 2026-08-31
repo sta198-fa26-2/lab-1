@@ -161,7 +161,7 @@ ggplot(life_3countries_f,
 
 # Exercise 4
 
-Add your name to the YAML at the top of this file, delete the code and images for the statistics majors plots, delete the appendix below, delete this Exercise 4 section (basically, clean up the file!), and submit to Gradescope via Canvas.
+Add your name to the YAML at the top of this file, delete the code and images for the statistics majors plots, delete the appendix below, delete this Exercise 4 section (basically, clean up the file!), delete grading details, and submit to Gradescope via Canvas.
 
 # Appendix {#appendix}
 Below is a list of countries in the dataset:
@@ -181,5 +181,10 @@ life %>%
 ```
 
 
+# Grading and Feedback
 
+10 points total
+
+- 5 points: uploading completed lab
+- 5 points: accuracy and presentation of exercises
 
